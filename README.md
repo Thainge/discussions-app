@@ -1,8 +1,8 @@
 # Discussions App
 
-![alt text](https://raw.githubusercontent.com/Thainge/portfolio/main/src/assets/Work/5.png)
-
 [Discussions App](https://thainge.github.io/discussions-app/)
+
+<img src="https://raw.githubusercontent.com/Thainge/portfolio/main/src/assets/Work/5.png" width="500" />
 
 Discussions application where users can post discussions, comment, recieved notifications, and more!
 
