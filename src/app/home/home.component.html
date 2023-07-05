@@ -1,0 +1,76 @@
+<div class="homeContainer">
+    <div class="homeChildContainer">
+        <!-- Create post -->
+        <div class="createNew" *ngIf="User?.info">
+            <img class="postImage" [src]="User!.info.picture" />
+            <a routerLink="/create" class="postInputA"><input type="text" class="postInput"
+                    placeholder="Create Post" /></a>
+            <a routerLink="/create" class="postIcon"><i-bs name="link-45deg" width="1.4em" height="1.4em"></i-bs></a>
+            <a routerLink="/create" class="postIcon"><i-bs name="image" width="1.4em" height="1.4em"></i-bs></a>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <div class="filterItem" [class.activeItem]="currentFilter === 1" (click)="setFilter(1)">
+                <i-bs name="rocket" class="filterIcon" width="1em" height="1em"></i-bs>
+                <div class="filterText">Best</div>
+            </div>
+            <div class="filterItem" [class.activeItem]="currentFilter === 2" (click)="setFilter(2)">
+                <i-bs name="fire" class="filterIcon" width="1em" height="1em"></i-bs>
+                <div class="filterText">Hot</div>
+            </div>
+            <div class="filterItem" [class.activeItem]="currentFilter === 3" (click)="setFilter(3)">
+                <i-bs name="graph-up-arrow" class="filterIcon" width="1em" height="1em"></i-bs>
+                <div class="filterText">New</div>
+            </div>
+        </div>
+
+        <!-- If no list, show loader -->
+        <ngx-spinner bdColor="rgba(0, 0, 0, 0)" size="medium" color="#000000" type="ball-rotate">
+            <p style="color: black; font-weight: bold;"> Loading... </p>
+        </ngx-spinner>
+
+        <!-- Posts list -->
+        <div class="postList" *ngIf="!loading">
+            <a [routerLink]="['/comments/', post.id]" class="post" href="#" *ngFor="let post of postsList">
+                <!-- Votes -->
+                <div class="votingContainer">
+                    <div (click)="upVote($event, post.id!)"><i-bs name="arrow-up-circle" class="arrow" width="1em"
+                            height="1em">
+                        </i-bs>
+                    </div>
+                    <div class="totalVotes">{{post.votes}}</div>
+                    <div (click)="downVote($event, post.id!)"><i-bs name="arrow-down-circle" class="arrow" width="1em"
+                            height="1em">
+                        </i-bs>
+                    </div>
+                </div>
+                <div class="postContent">
+                    <!-- Post header -->
+                    <div class="postHeader">
+                        <img class="profileImg" [src]="post.authorImage" />
+                        <div class="profileAuthor">{{post.author}}</div>
+                        <div class="publishDate">- {{post.dateCreated | date: 'short'}}</div>
+                    </div>
+
+                    <!-- Post title -->
+                    <div class="postTitle">{{post.title}}</div>
+
+                    <!-- Post description -->
+                    <div class="postDescriptionContainer">
+                        <div class="postDescriptionOverlay"></div>
+                        <div class="postDescription">
+                            {{post.description}}
+                        </div>
+                    </div>
+
+                    <!-- Comments -->
+                    <div class="comments">
+                        <i-bs name="chat-left" width="1em" height="1em"></i-bs>
+                        {{post.comments}} Comments
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

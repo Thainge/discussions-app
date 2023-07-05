@@ -1,0 +1,111 @@
+<div class="navbarHeader">
+    <!-- Title -->
+    <a routerLink="/" class="title">
+        <img class="titleImg" src="/assets/logo.png" />
+        <div class="titleHeader">Fourms</div>
+    </a>
+
+    <!-- Dropdown Menu -->
+    <div ngbDropdown class="dropdown">
+        <button ngbDropdownToggle class="btn btn-secondary dropdownBtn" type="button" id="dropdownMenuButton1"
+            aria-expanded="false">
+            <div ngbDropdownItem class="dropdownRow dropdownFirst">
+                <i-bs [name]="currentNav.icon"></i-bs>
+                {{currentNav.title}}
+            </div>
+        </button>
+
+        <ul ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+            <li *ngFor="let item of navLinks">
+                <a ngbDropdownItem class="dropdownRow" (click)="changeNav(item)">
+                    <i-bs [name]="item.icon"></i-bs>
+                    {{item.title}}
+                </a>
+            </li>
+            <div class="dropdown-divider"></div>
+            <li>
+                <a ngbDropdownItem routerLink="/create" class="dropdownRow">
+                    <i name="house" class="dropdownRowIconText">+</i>
+                    Create Post
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Search bar -->
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1" (click)="searchPosts()">
+                <i-bs name="search" width="1.15em" height="1.15em"></i-bs>
+            </span>
+        </div>
+        <input [(ngModel)]="searchText" (keyup.enter)="searchPosts()" type="text" class="form-control"
+            placeholder="Search..." aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+
+    <!-- Nav splitter -->
+    <div class="navSplitter"></div>
+
+    <!-- Dropdown Menu -->
+    <div ngbDropdown class="dropdown">
+        <div ngbDropdownToggle class="notification" id="dropdownMenuButton2">
+            <i-bs class="bellIcon" name="bell" width="1.15em" height="1.15em"></i-bs>
+            <div class="bellOverlay" *ngIf="notificationList.length > 0">{{notificationList.length}}</div>
+        </div>
+
+        <ul ngbDropdownMenu class="notificationList" aria-labelledby="dropdownMenuButton2">
+            <div class="notificationTitle">Notifications</div>
+            <div (click)="clearNotification(item)" class="notificationBox" *ngFor="let item of notificationList">
+                <img class="notificationImage"
+                    src="https://forums.terraria.org/data/avatars/l/118/118149.jpg?1534461082" />
+                <div class="notificationMessageBox">
+                    <div class="messageBoxTitle">{{item.user}} replied to your post - {{item.datePosted | date:
+                        'short'}}</div>
+                    <div class="messageBoxMessage">{{item.message}}</div>
+                </div>
+            </div>
+            <div class="markAsRead">
+                <div>Mark All As Read</div>
+            </div>
+        </ul>
+    </div>
+
+    <!-- Not logged in, show register/login -->
+    <div class="loginLink" (click)="login()" *ngIf="!isLoggedIn()">Log In</div>
+
+    <!-- Profile Menu -->
+    <div ngbDropdown class="dropdown" *ngIf="isLoggedIn()">
+        <button ngbDropdownToggle class="btn btn-secondary dropdownBtn profileBtn" type="button"
+            id="dropdownMenuButton1" aria-expanded="false">
+            <div ngbDropdownItem class="dropdownRow dropdownFirst">
+                <img class="profileImg" [src]="User?.info?.picture" />
+                <div class="profile">
+                    <div class="profileTitle">{{User?.info?.given_name}}</div>
+                    <div class="profileVotesBox">
+                        <i-bs class="profileVotes" name="stars" width="1em" height="1em"></i-bs>
+                        15
+                    </div>
+                </div>
+            </div>
+        </button>
+
+        <ul class="profileDropMenu" ngbDropdownMenu aria-labelledby="dropdownMenuButton1">
+            <div class="dropdownSplitterText">
+                <i-bs name="person-circle"></i-bs>
+                My Stuff
+            </div>
+            <li class="linkItem">
+                <a ngbDropdownItem routerLink="/settings">
+                    Account Settings
+                </a>
+            </li>
+            <div class="dropdown-divider"></div>
+            <li>
+                <div ngbDropdownItem class="dropdownRow" (click)="logout()">
+                    <i-bs name="arrow-bar-right"></i-bs>
+                    Log Out
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

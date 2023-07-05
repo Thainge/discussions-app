@@ -1,0 +1,139 @@
+.createContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    padding-top: 9em;
+    padding-bottom: 9em;
+}
+
+.createChildContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: .5em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 2em;
+    width: 80%;
+    max-width: 70em;
+}
+
+.title {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 1em;
+    font-size: 1.4em;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(228, 222, 222);
+    margin-bottom: 1em;
+}
+
+/* Title input */
+.titleBox {
+    width: 90%;
+    margin-bottom: .5em;
+}
+
+.titleInput {
+    width: 100%;
+}
+
+.form-control:hover,
+.form-control:active,
+.form-control:focus {
+    box-shadow: 0 0 0em 0em rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(245, 245, 245);
+}
+
+.form-control:focus {
+    background-color: rgb(250, 250, 250);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.errorText {
+    color: red;
+    width: 90%;
+    font-size: .9em;
+    font-weight: 500;
+}
+
+/* Add post */
+.addCommentBox {
+    width: 90%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.addComment {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2em;
+}
+
+.authorI {
+    color: rgb(0, 119, 255);
+    font-style: normal;
+}
+
+.addCommentInput {
+    border: 1px solid rgb(235, 233, 233);
+    outline: none;
+    padding-left: 1em;
+    padding-top: .5em;
+    margin-bottom: 1em;
+}
+
+.addCommentInput:focus,
+.addCommentInput:active {
+    border: 1px solid rgb(100, 100, 100);
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 1em;
+}
+
+.addCommentButton {
+    background-color: rgb(0, 119, 255);
+    color: white;
+    font-weight: 500;
+}
+
+.cancelButton {
+    color: black;
+    text-decoration: none;
+}
+
+.cancelButton,
+.addCommentButton {
+    border-radius: 10em;
+    padding: .4em;
+    padding-left: .8em;
+    padding-right: .8em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.cancelButton:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.cancelButton:active {
+    background-color: rgb(225, 225, 225);
+}
+
+.addCommentButton:hover {
+    background-color: rgb(0, 102, 255);
+}
+
+.addCommentButton:active {
+    background-color: rgb(0, 132, 255);
+}

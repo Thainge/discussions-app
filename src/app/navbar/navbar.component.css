@@ -1,0 +1,340 @@
+.navbarHeader {
+    width: 100%;
+    height: 4em;
+    display: flex;
+    padding-left: 1em;
+    /* background-color: rgb(27, 27, 27); */
+    background-color: white;
+    column-gap: 2em;
+    align-items: center;
+    padding-right: 1em;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    position: fixed;
+    top: 0;
+    z-index: 101;
+}
+
+/* Title */
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: .5em;
+    text-decoration: none;
+    color: black;
+}
+
+.titleImg {
+    width: 2.2em;
+    height: 2.2em;
+}
+
+.titleHeader {
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+/* Route Dropdown */
+.dropdownFirst {
+    background-color: transparent !important;
+}
+
+.dropdownBtn {
+    border-radius: 0;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    min-width: 9em;
+    color: black;
+    border: 1px solid whitesmoke;
+}
+
+.dropdownBtn:active {
+    /* background-color: rgb(49, 49, 49); */
+    color: black;
+    background-color: white;
+    border: 1px solid rgb(235, 235, 235);
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    color: black;
+    background-color: rgb(230, 230, 230);
+}
+
+.dropdownRow {
+    display: flex;
+    align-items: center;
+    column-gap: .8em;
+    cursor: pointer;
+    user-select: none;
+}
+
+.dropdownRowIconText {
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+/* Search bar */
+.input-group-text {
+    cursor: pointer;
+    border-radius: 0;
+    border-top-left-radius: .5em;
+    border-bottom-left-radius: .5em;
+    border: 1px solid rgb(240, 240, 240);
+    background-color: rgb(245, 245, 245);
+    user-select: none;
+}
+
+.input-group-text:hover {
+    background-color: rgb(250, 250, 250);
+}
+
+.form-control {
+    border-radius: 0;
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
+    background-color: rgb(245, 245, 245);
+    user-select: none;
+}
+
+.form-control:hover,
+.form-control:active,
+.form-control:focus {
+    box-shadow: 0 0 0em 0em rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(245, 245, 245);
+}
+
+.form-control:hover {
+    background-color: rgb(250, 250, 250);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Nav splitter */
+.navSplitter {
+    height: 60%;
+    width: .1em;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Notification bell */
+.notification {
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+}
+
+.bellIcon {
+    transition: all .3s;
+    opacity: .5;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.bellOverlay {
+    position: absolute;
+    top: -.4em;
+    right: -.4em;
+    background-color: orangered;
+    color: white;
+    border-radius: 10em;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .7em;
+    padding: .7em;
+    opacity: 1;
+}
+
+.notification:hover {
+    color: black;
+}
+
+.notificationList {
+    user-select: none;
+    width: 20em;
+}
+
+.notificationTitle {
+    width: 100%;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    font-weight: 500;
+    font-size: .9em;
+    padding: 1.3em;
+    padding-bottom: 1em;
+}
+
+.odd {
+    background-color: whitesmoke;
+}
+
+.notificationBox {
+    padding: 1.3em;
+    padding-bottom: .8em;
+    padding-top: .8em;
+    display: flex;
+    column-gap: .5em;
+    width: 100%;
+    overflow: ellipsis;
+    overflow-wrap: normal;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+.notificationBox:hover {
+    background-color: rgb(240, 240, 240);
+}
+
+.notificationImage {
+    border-radius: 10em;
+    width: 2em;
+    height: 2em;
+}
+
+.notificationMessageBox {
+    display: flex;
+    flex-direction: column;
+    row-gap: .3em;
+    text-overflow: wrap;
+}
+
+.messageBoxTitle {
+    font-weight: 500;
+    font-size: .9em;
+}
+
+.notificationDate {
+    font-style: normal;
+    font-weight: normal;
+    color: rgb(110, 110, 110);
+}
+
+.messageBoxMessage {
+    font-size: .9em;
+    color: rgb(110, 110, 110);
+}
+
+.markAsRead {
+    padding: 1.3em;
+    padding-top: .8em;
+    padding-bottom: .5em;
+    display: flex;
+    border-top: 1px solid rgb(225, 225, 225);
+}
+
+.markAsRead>div {
+    cursor: pointer;
+}
+
+.markAsRead>div:hover {
+    text-decoration: underline;
+}
+
+/* Profile */
+.profileBtn {
+    padding: 0;
+    padding-left: .3em;
+    padding-right: .7em;
+    border: 1px solid whitesmoke;
+    user-select: none;
+}
+
+.profileBtn:active {
+    background-color: white;
+    border: 1px solid rgb(235, 235, 235);
+}
+
+.profileImg {
+    width: 1.6em;
+    border-radius: .3em;
+    border: 1px solid rgba(0, 0, 0, 0.288);
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: flex-end;
+    width: 100%;
+    font-size: .7em;
+    user-select: none;
+}
+
+.profileTitle {
+    text-align: start;
+    overflow: hidden;
+}
+
+.profileVotesBox {
+    display: flex;
+}
+
+.dropdownSplitterText {
+    margin-bottom: .2em;
+    padding-left: .5em;
+    column-gap: .5em;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-divider {
+    margin-bottom: .5em;
+}
+
+button {
+    box-shadow: none !important;
+}
+
+.linkItem {
+    margin-bottom: 1em;
+}
+
+.form-switch {
+    margin-left: 1em;
+}
+
+.form-check-label {
+    user-select: none;
+}
+
+.form-check-input:active,
+.form-check-input:focus {
+    box-shadow: none;
+}
+
+.form-check-input {
+    background-color: #747474 !important;
+    background-color: rgb(230, 230, 230) !important;
+    border: none;
+}
+
+/* Log In */
+
+.loginLink {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: .4em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+    background-color: orangered;
+    border-radius: 3em;
+    min-width: 6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s;
+    user-select: none;
+}
+
+.loginLink:hover {
+    background-color: rgb(255, 109, 56);
+}

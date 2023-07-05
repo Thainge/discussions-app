@@ -1,0 +1,98 @@
+<div class="postContainer">
+    <!-- If no list, show loader -->
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0)" size="medium" color="#000000" type="ball-rotate">
+        <p style="color: black; font-weight: bold;"> Loading Post... </p>
+    </ngx-spinner>
+    <div class="summaryBox">
+        <div class="summary">
+            <div class="breaker">|</div>
+            <div class="summaryVotes">
+                <div (click)="upVote($event, post.id!)"><i-bs name="arrow-up-circle" class="arrow" width="1em"
+                        height="1em">
+                    </i-bs>
+                </div>
+                <div class="totalVotes">{{post.votes}}</div>
+                <div (click)="downVote($event, post.id!)"><i-bs name="arrow-down-circle" class="arrow" width="1em"
+                        height="1em">
+                    </i-bs>
+                </div>
+            </div>
+            <div class="breaker">|</div>
+            <div class="summaryTitle">{{post.title}}</div>
+            <a routerLink="/" class="closePost">
+                <i-bs name="x-lg" width="1em" height="1em"></i-bs>
+                <div class="closeText">Close</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="postBox">
+        <div class="post" href="#">
+            <!-- Votes -->
+            <div class="votingContainer">
+                <div (click)="upVote($event, post.id!)"><i-bs name="arrow-up-circle" class="arrow" width="1em"
+                        height="1em">
+                    </i-bs>
+                </div>
+                <div class="totalVotes">{{post.votes}}</div>
+                <div (click)="downVote($event, post.id!)"><i-bs name="arrow-down-circle" class="arrow" width="1em"
+                        height="1em">
+                    </i-bs>
+                </div>
+            </div>
+
+            <div class="postContent">
+                <!-- Post header -->
+                <div class="postHeader">
+                    <img class="profileImg" [src]="post.authorImage" />
+                    <div class="profileAuthor">{{post.author}}</div>
+                    <div class="publishDate">- {{post.dateCreated | date: 'short'}}</div>
+                </div>
+
+                <!-- Post title -->
+                <div class="postTitle">{{post.title}}</div>
+
+                <!-- Post description -->
+                <div class="postDescription">
+                    {{post.description}}
+                </div>
+
+                <!-- Comments -->
+                <div class="comments">
+                    <i-bs name="chat-left" width="1em" height="1em"></i-bs>
+                    {{post.comments}} Comments
+                </div>
+            </div>
+        </div>
+        <div class="lineBox">
+            <div class="line"></div>
+        </div>
+        <div class="commentsList">
+            <div class="postComment" *ngFor="let comment of postComments">
+                <div class="commentHeader">
+                    <img class="commentImg" [src]="comment.authorImage" />
+                    <div class="commentAuthor">{{comment.author}}</div>
+                    <div>·</div>
+                    <div class="commentDate">{{comment.postedDate | date: 'short'}}</div>
+                </div>
+                <div class="commentText">{{comment.comment}}</div>
+                <div class="commentLine"></div>
+            </div>
+        </div>
+        <div class="addCommentBox">
+            <form class="addComment" [formGroup]="commentForm" (ngSubmit)="onSubmit(commentForm)">
+                <div class="commentAs">Comment as <i class="authorI">Llorence</i></div>
+                <div class="errorText"
+                    *ngIf="commentForm.get('comment')?.invalid && commentForm.get('comment')?.touched">
+                    You must enter a value.
+                </div>
+                <textarea formControlName="comment" class="addCommentInput" cols="30" rows="10"
+                    placeholder="What are your thoughts?"></textarea>
+                <div class="buttons">
+                    <a routerLink="/" class="cancelButton">Cancel</a>
+                    <button type="submit" class="addCommentButton">Comment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

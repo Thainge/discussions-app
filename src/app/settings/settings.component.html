@@ -1,0 +1,17 @@
+<div class="settingsBox">
+    <form class="settings" [formGroup]="formData" (ngSubmit)="onSubmit(formData)">
+        <div class="title">Account Settings</div>
+        <div class="formSection">
+            <div class="subTitle">Profile Preferences</div>
+            <div class="form-group">
+                <label>Display Name</label>
+                <div class="errorText" *ngIf="formData.get('name')?.invalid && formData.get('name')?.touched">
+                    Name is required.
+                </div>
+                <input type="text" class="form-control" formControlName="name">
+            </div>
+        </div>
+
+        <button class="btn btn-primary">Submit</button>
+    </form>
+</div>

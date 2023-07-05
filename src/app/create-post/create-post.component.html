@@ -1,0 +1,25 @@
+<div class="createContainer">
+    <form class="createChildContainer" [formGroup]="formData" (ngSubmit)="onSubmit(formData)">
+        <div class="title">Create a post</div>
+        <div class="errorText" *ngIf="formData.get('title')?.invalid && formData.get('title')?.touched">
+            Title is required.
+        </div>
+        <div class="titleBox">
+            <input formControlName="title" placeholder="Title" type="text" class="form-control titleInput">
+        </div>
+        <!-- If no list, show loader -->
+        <ngx-spinner bdColor="rgba(0, 0, 0, 0)" size="medium" color="#000000" type="ball-rotate">
+            <p style="color: black; font-weight: bold;"> Loading... </p>
+        </ngx-spinner>
+        <div class="addCommentBox">
+            <div class="addComment">
+                <textarea formControlName="description" class="addCommentInput form-control" cols="30" rows="10"
+                    placeholder="Text (optional)"></textarea>
+                <div class="buttons">
+                    <a routerLink="/" class="cancelButton">Cancel</a>
+                    <button type="submit" class="addCommentButton">Post</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
